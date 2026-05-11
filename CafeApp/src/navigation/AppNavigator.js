@@ -51,7 +51,7 @@ export default function AppNavigator() {
             <Stack.Screen
               name="Login"
               component={LoginScreen}
-              options={{ title: 'Mi Bitacora de Cafe' }}
+              options={{ title: 'CafeApp' }}
             />
             <Stack.Screen
               name="Register"
@@ -69,7 +69,7 @@ export default function AppNavigator() {
             <Stack.Screen
               name="MainMenu"
               component={MainMenuScreen}
-              options={{ title: 'Panel de cata', headerBackVisible: false }}
+              options={{ title: 'Panel de Cafe', headerBackVisible: false }}
             />
             <Stack.Screen
               name="ReviewForm"

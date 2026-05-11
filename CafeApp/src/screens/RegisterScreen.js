@@ -28,7 +28,7 @@ export default function RegisterScreen({ navigation }) {
   return (
     <ScreenContainer scroll contentStyle={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>Crea tu perfil de cata</Text>
+        <Text style={styles.title}>Crea tu perfil de CafeApp</Text>
         <Text style={styles.subtitle}>
           Configura tu acceso para guardar tu historial y organizar cada degustacion.
         </Text>

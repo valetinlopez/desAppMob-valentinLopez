@@ -22,7 +22,7 @@ export default function ReviewListScreen({ navigation }) {
     <ScreenContainer contentStyle={styles.container}>
       <View style={styles.toolbar}>
         <View>
-          <Text style={styles.title}>Tu bitacora de cafes</Text>
+          <Text style={styles.title}>CafeApp</Text>
           <Text style={styles.subtitle}>
             Revisa tu historial, abre cada ficha y manten ordenadas tus degustaciones.
           </Text>

@@ -26,7 +26,7 @@ export default function LoginScreen({ navigation }) {
   return (
     <ScreenContainer scroll contentStyle={styles.container}>
       <View style={styles.hero}>
-        <Text style={styles.badge}>Bitacora de degustacion</Text>
+        <Text style={styles.badge}>CafeApp</Text>
         <Text style={styles.title}>Tu universo de cafes</Text>
         <Text style={styles.subtitle}>
           Inicia sesion para registrar experiencias, comparar perfiles y seguir tus favoritos.

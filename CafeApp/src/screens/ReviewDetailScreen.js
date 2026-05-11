@@ -25,7 +25,7 @@ export default function ReviewDetailScreen({ navigation, route }) {
         <RatingStars rating={review.rating} size={26} />
 
         <View style={styles.infoBlock}>
-          <Text style={styles.blockTitle}>Notas de cata</Text>
+          <Text style={styles.blockTitle}>Notas de cafe</Text>
           <Text style={styles.blockText}>
             {review.notes || 'Todavia no agregaste notas para esta degustacion.'}
           </Text>
