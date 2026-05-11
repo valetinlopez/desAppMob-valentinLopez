@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import ScreenContainer from '../components/ScreenContainer';
 import { useAppContext } from '../contexts/AppContext';
 import { colors } from '../theme/colors';
+import { showMessage } from '../utils/dialogs';
 
 export default function LoginScreen({ navigation }) {
   const { login } = useAppContext();
@@ -14,7 +15,7 @@ export default function LoginScreen({ navigation }) {
     const result = await login(username, password);
 
     if (!result.ok) {
-      Alert.alert('No se pudo iniciar sesion', result.message);
+      showMessage('No se pudo iniciar sesion', result.message);
       return;
     }
 
@@ -25,10 +26,10 @@ export default function LoginScreen({ navigation }) {
   return (
     <ScreenContainer scroll contentStyle={styles.container}>
       <View style={styles.hero}>
-        <Text style={styles.badge}>TP React Native + SQLite</Text>
-        <Text style={styles.title}>Cafe Review</Text>
+        <Text style={styles.badge}>Bitacora de degustacion</Text>
+        <Text style={styles.title}>Tu universo de cafes</Text>
         <Text style={styles.subtitle}>
-          Inicia sesion para cargar, editar y eliminar reseñas de cafes.
+          Inicia sesion para registrar experiencias, comparar perfiles y seguir tus favoritos.
         </Text>
       </View>
 

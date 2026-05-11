@@ -11,10 +11,10 @@ export default function MainMenuScreen({ navigation }) {
   return (
     <ScreenContainer contentStyle={styles.container}>
       <View style={styles.heroCard}>
-        <Text style={styles.eyebrow}>Bienvenido</Text>
+        <Text style={styles.eyebrow}>Panel personal</Text>
         <Text style={styles.title}>{currentUser?.fullName || currentUser?.username}</Text>
         <Text style={styles.subtitle}>
-          Administra tus reviews de cafes y bebidas con una app hecha en React Native.
+          Gestiona tus registros de cafe, destaca favoritos y manten tu experiencia siempre ordenada.
         </Text>
       </View>
 

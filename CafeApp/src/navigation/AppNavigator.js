@@ -51,17 +51,17 @@ export default function AppNavigator() {
             <Stack.Screen
               name="Login"
               component={LoginScreen}
-              options={{ title: 'Cafe Review' }}
+              options={{ title: 'Mi Bitacora de Cafe' }}
             />
             <Stack.Screen
               name="Register"
               component={RegisterScreen}
-              options={{ title: 'Registrarse' }}
+              options={{ title: 'Crear perfil' }}
             />
             <Stack.Screen
               name="RecoverPassword"
               component={RecoverPasswordScreen}
-              options={{ title: 'Recuperar clave' }}
+              options={{ title: 'Recuperar acceso' }}
             />
           </>
         ) : (
@@ -69,24 +69,24 @@ export default function AppNavigator() {
             <Stack.Screen
               name="MainMenu"
               component={MainMenuScreen}
-              options={{ title: 'Menu principal', headerBackVisible: false }}
+              options={{ title: 'Panel de cata', headerBackVisible: false }}
             />
             <Stack.Screen
               name="ReviewForm"
               component={ReviewFormScreen}
               options={({ route }) => ({
-                title: route.params?.review ? 'Editar review' : 'Nueva review',
+                title: route.params?.review ? 'Editar ficha' : 'Nueva ficha',
               })}
             />
             <Stack.Screen
               name="ReviewList"
               component={ReviewListScreen}
-              options={{ title: 'Tus reviews' }}
+              options={{ title: 'Bitacora de cafes' }}
             />
             <Stack.Screen
               name="ReviewDetail"
               component={ReviewDetailScreen}
-              options={{ title: 'Detalle del cafe' }}
+              options={{ title: 'Detalle de cata' }}
             />
           </>
         )}

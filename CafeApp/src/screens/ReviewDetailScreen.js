@@ -1,26 +1,20 @@
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import RatingStars from '../components/RatingStars';
 import ScreenContainer from '../components/ScreenContainer';
 import { useAppContext } from '../contexts/AppContext';
 import { colors } from '../theme/colors';
+import { showConfirm } from '../utils/dialogs';
 
 export default function ReviewDetailScreen({ navigation, route }) {
   const { removeReview } = useAppContext();
   const { review } = route.params;
 
   const handleDelete = () => {
-    Alert.alert('Eliminar review', 'Esta accion quitara la review de la base SQLite.', [
-      { text: 'Cancelar', style: 'cancel' },
-      {
-        text: 'Eliminar',
-        style: 'destructive',
-        onPress: async () => {
-          await removeReview(review.id);
-          navigation.navigate('ReviewList');
-        },
-      },
-    ]);
+    showConfirm('Eliminar review', 'Esta accion quitara esta ficha de tu historial.', async () => {
+      await removeReview(review.id);
+      navigation.navigate('ReviewList');
+    });
   };
 
   return (
@@ -31,9 +25,9 @@ export default function ReviewDetailScreen({ navigation, route }) {
         <RatingStars rating={review.rating} size={26} />
 
         <View style={styles.infoBlock}>
-          <Text style={styles.blockTitle}>Comentario</Text>
+          <Text style={styles.blockTitle}>Notas de cata</Text>
           <Text style={styles.blockText}>
-            {review.notes || 'No agregaste comentario para esta review.'}
+            {review.notes || 'Todavia no agregaste notas para esta degustacion.'}
           </Text>
         </View>
 
@@ -46,7 +40,7 @@ export default function ReviewDetailScreen({ navigation, route }) {
           style={styles.editButton}
           onPress={() => navigation.navigate('ReviewForm', { review })}
         >
-          <Text style={styles.editButtonText}>Editar review</Text>
+          <Text style={styles.editButtonText}>Editar ficha</Text>
         </Pressable>
 
         <Pressable style={styles.deleteButton} onPress={handleDelete}>

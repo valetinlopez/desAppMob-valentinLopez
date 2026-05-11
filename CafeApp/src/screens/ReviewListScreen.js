@@ -22,9 +22,9 @@ export default function ReviewListScreen({ navigation }) {
     <ScreenContainer contentStyle={styles.container}>
       <View style={styles.toolbar}>
         <View>
-          <Text style={styles.title}>Lista de reviews</Text>
+          <Text style={styles.title}>Tu bitacora de cafes</Text>
           <Text style={styles.subtitle}>
-            Aqui podes ver, editar o borrar los cafes cargados.
+            Revisa tu historial, abre cada ficha y manten ordenadas tus degustaciones.
           </Text>
         </View>
 
@@ -54,9 +54,9 @@ export default function ReviewListScreen({ navigation }) {
         )}
         ListEmptyComponent={
           <View style={styles.emptyCard}>
-            <Text style={styles.emptyTitle}>No hay reviews para mostrar.</Text>
+            <Text style={styles.emptyTitle}>Aun no registraste degustaciones.</Text>
             <Text style={styles.emptyText}>
-              Carga una review desde el menu principal y aparecera aqui.
+              Crea una ficha desde el panel principal y la veras listada aqui.
             </Text>
           </View>
         }

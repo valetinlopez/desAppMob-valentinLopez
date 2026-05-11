@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import ScreenContainer from '../components/ScreenContainer';
 import { useAppContext } from '../contexts/AppContext';
 import { colors } from '../theme/colors';
+import { showMessage } from '../utils/dialogs';
 
 export default function RegisterScreen({ navigation }) {
   const { signup } = useAppContext();
@@ -14,7 +15,7 @@ export default function RegisterScreen({ navigation }) {
   const handleRegister = async () => {
     const result = await signup({ fullName, username, password });
 
-    Alert.alert(result.ok ? 'Registro exitoso' : 'No se pudo registrar', result.message);
+    showMessage(result.ok ? 'Registro exitoso' : 'No se pudo registrar', result.message);
 
     if (result.ok) {
       setFullName('');
@@ -27,9 +28,9 @@ export default function RegisterScreen({ navigation }) {
   return (
     <ScreenContainer scroll contentStyle={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>Crear cuenta</Text>
+        <Text style={styles.title}>Crea tu perfil de cata</Text>
         <Text style={styles.subtitle}>
-          Guardamos el usuario en SQLite para que despues pueda iniciar sesion.
+          Configura tu acceso para guardar tu historial y organizar cada degustacion.
         </Text>
 
         <TextInput

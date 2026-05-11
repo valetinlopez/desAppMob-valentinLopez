@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import {
-  Alert,
   Pressable,
   StyleSheet,
   Switch,
@@ -13,6 +12,7 @@ import ScreenContainer from '../components/ScreenContainer';
 import RatingStars from '../components/RatingStars';
 import { useAppContext } from '../contexts/AppContext';
 import { colors } from '../theme/colors';
+import { showMessage } from '../utils/dialogs';
 
 const ratingOptions = [1, 2, 3, 4, 5];
 
@@ -41,11 +41,11 @@ export default function ReviewFormScreen({ navigation, route }) {
     const result = await saveReview(form, existingReview?.id);
 
     if (!result.ok) {
-      Alert.alert('No se pudo guardar', result.message);
+      showMessage('No se pudo guardar', result.message);
       return;
     }
 
-    Alert.alert('Listo', result.message);
+    showMessage('Listo', result.message);
     navigation.navigate('ReviewList');
   };
 
@@ -53,10 +53,10 @@ export default function ReviewFormScreen({ navigation, route }) {
     <ScreenContainer scroll contentStyle={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>
-          {existingReview ? 'Editar review' : 'Nueva review de cafe'}
+          {existingReview ? 'Editar ficha de degustacion' : 'Nueva ficha de degustacion'}
         </Text>
         <Text style={styles.subtitle}>
-          Carga nombre del cafe, nivel de dulzor, puntuacion y un comentario personal.
+          Registra el cafe, su perfil de dulzor, tu puntuacion y las notas que definieron la experiencia.
         </Text>
 
         <TextInput
@@ -115,7 +115,9 @@ export default function ReviewFormScreen({ navigation, route }) {
         <View style={styles.favoriteRow}>
           <View>
             <Text style={styles.sectionLabel}>Marcar como favorito</Text>
-            <Text style={styles.favoriteHint}>Sirve para destacar tus mejores reseñas.</Text>
+            <Text style={styles.favoriteHint}>
+              Ideal para resaltar las experiencias que mas quieras revisitar.
+            </Text>
           </View>
           <Switch
             value={form.favorite}

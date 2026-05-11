@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import ScreenContainer from '../components/ScreenContainer';
 import { useAppContext } from '../contexts/AppContext';
 import { colors } from '../theme/colors';
+import { showMessage } from '../utils/dialogs';
 
 export default function RecoverPasswordScreen() {
   const { recoverPassword } = useAppContext();
@@ -11,15 +12,15 @@ export default function RecoverPasswordScreen() {
 
   const handleRecover = async () => {
     const result = await recoverPassword(username);
-    Alert.alert(result.ok ? 'Recuperacion' : 'Sin resultados', result.message);
+    showMessage(result.ok ? 'Recuperacion' : 'Sin resultados', result.message);
   };
 
   return (
     <ScreenContainer scroll contentStyle={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>Recuperar clave</Text>
+        <Text style={styles.title}>Recupera tu acceso</Text>
         <Text style={styles.subtitle}>
-          Ingrese su nombre de usuario para recuperar su clave.
+          Ingresa tu usuario para consultar la clave asociada a tu perfil.
         </Text>
 
         <TextInput
