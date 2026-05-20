@@ -38,6 +38,13 @@ export default function MainMenuScreen({ navigation }) {
           <Text style={styles.secondaryButtonText}>Ver lista de reviews</Text>
         </Pressable>
 
+        <Pressable
+          style={styles.secondaryButton}
+          onPress={() => navigation.navigate('CoffeeCatalog')}
+        >
+          <Text style={styles.secondaryButtonText}>Explorar cafes desde API</Text>
+        </Pressable>
+
         <Pressable style={styles.ghostButton} onPress={logout}>
           <Text style={styles.ghostButtonText}>Cerrar sesion</Text>
         </Pressable>

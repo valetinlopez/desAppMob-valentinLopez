@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useAppContext } from '../contexts/AppContext';
 import LoginScreen from '../screens/LoginScreen';
 import MainMenuScreen from '../screens/MainMenuScreen';
+import CoffeeCatalogScreen from '../screens/CoffeeCatalogScreen';
 import RecoverPasswordScreen from '../screens/RecoverPasswordScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import ReviewDetailScreen from '../screens/ReviewDetailScreen';
@@ -82,6 +83,11 @@ export default function AppNavigator() {
               name="ReviewList"
               component={ReviewListScreen}
               options={{ title: 'Bitacora de cafes' }}
+            />
+            <Stack.Screen
+              name="CoffeeCatalog"
+              component={CoffeeCatalogScreen}
+              options={{ title: 'Catalogo API' }}
             />
             <Stack.Screen
               name="ReviewDetail"
